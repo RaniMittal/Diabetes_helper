@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="foodieApp">
+<head>
+	<title>Diabetes Helper</title>
+	<link rel="stylesheet" type="text/css" href="diabetesHelperCSS.css">
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="angular-route.js"></script>
+	<script type="text/javascript" src="diabetesHelperJS.js"></script>
+</head>
+<body>
+	<header class="header">
+		<ul class="nav navbar-nav navbar-right">
+		    <li><a href="#!/home">Home</a></li>		    
+		    <li><a href="#!/">Logout</a></li>
+		</ul>
+		<img src="https://b.zmtcdn.com/images/icons/order-online.svg" width="28px" height="28px">
+		<span>Order Food</span>
+		<img src="https://b.zmtcdn.com/images/icons/book-a-table.svg" width="28px" height="28px">
+		<span>Book A Table</span>
+	</header>
+	<!-- ngView is a directive that complements the $route service by including the rendered template of the current route into the main layout (index.html) file. Every time the current route changes, the included view changes with it according to the configuration of the $route service.
+
+	Application needs a container to put the content provided by the routing.
+	This container is the ng-view directive.
+
+	So whenever the url(route) is changed, Angular only updates the content inside this 'ng-view' div -->
+
+	<div ng-view></div>
+	<footer>
+		<a href="#">
+		<img src="https://image.freepik.com/free-icon/facebook-social-network-symbol_318-31350.jpg" width="28px" height="28px">
+		<img src="https://www.sketchappsources.com/resources/source-image/new-instagram-logo-openallen.jpg" width="28px" height="28px">
+		<img src="https://image.flaticon.com/icons/svg/8/8800.svg" width="28px" height="28px">
+	</footer>
+</body>
+</html>

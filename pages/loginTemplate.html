@@ -1,0 +1,22 @@
+<div ng-controller="loginController">
+	<form name="loginForm">
+		<div>
+			<label>Email address</label>
+			<input type="email" name="email" placeholder="Email" ng-model="user.email" required="">
+			<!-- 'ng-show' is another attribute that only displays the element if the condition in the quotes is true -->
+
+			<!-- AngularJS directives are extended HTML attributes with the prefix ng 'ng-show','ng-disabled','ng-minlength','ng-maxlength' etc. -->
+
+			<div ng-show="loginForm.email.$error.required">This field is Required!</div>
+			<div ng-show="loginForm.email.$error.email">This doesn't look like a valid email</div>
+		</div>
+
+		<div>
+			<label>Password</label>
+			<input type="password" name="password" placeholder="Password" ng-model="user.pass" required="" ng-minlength="6">
+			<div ng-show="loginForm.email.$error.required">This field is Required!</div>
+			<div ng-show="loginForm.password.$error.minlength">Password must be at least 6 characters long </div>
+        </div>        
+		<button type="submit" ng-disabled="loginForm.$invalid" ng-click="goToHome(user.email,user.pass)">Login</button>
+	</form>
+</div>

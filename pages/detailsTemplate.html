@@ -1,0 +1,50 @@
+<div ng-controller="restaurantController">
+    <div class="restaurant">
+        <div class="rest-wrapper">
+            <div class="image">
+                <img src="{{restaurant.image}}" height="100" width="100">
+            </div>
+            <div class="rest-info">
+                <div class="rest-name">
+                <strong>{{restaurant.name}}</strong>
+                </div>
+               
+                <div class="rest-address">
+                    <strong> {{restaurant.address}} </strong>
+                </div>
+                <div class="rest-contact">
+                   <italic>phone:{{restaurant.phone}} </italic>
+                   <italic>reservation:{{restaurant.reservations}} </italic>
+                </div>            
+            </div>
+        </div>
+        <div class="rest-extra">
+            <div class="type">
+                <div><small>Cuisines:</small></div>
+                <div><small>Cost for Two: </small></div>
+                <div><small>Hours:</small></div>
+                <div ng-if="restaurant.bestDish"><small>Recommended: </small></div>
+            </div>
+            <div class="value">
+                <div>{{restaurant.cuisines}}</div>
+                <!-- The | symbol denotes a filter  In Angular, there are a lot of filters that help us easily format our data -->
+                <div>₹ {{ restaurant.cost | number }}</div>
+                <div>{{restaurant.hours}}</div> 
+                <div class="bestDish" ng-if="restaurant.bestDish">
+                    <span>{{restaurant.bestDish.name}} </span>
+                    <div ng-click="getIngredients(restaurant.bestDish.image)" class="button">Get Ingredients</div>
+                </div>
+            </div>                       
+        </div>
+        <div class="rating">
+            <strong>{{restaurant.vote}}</strong>
+        </div>
+        <div ng-if="ingredients">
+            <ol>
+                <li ng-repeat="ingredient in ingredients">
+                    {{ingredient}}
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

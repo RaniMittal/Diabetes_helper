@@ -1,0 +1,51 @@
+<div ng-controller="mainController">
+    <!-- #! is together known as 'hashbang'
+	Angular knows how which 'view' to render (show) based on the value after the #! -->
+	<img src="https://s-media-cache-ak0.pinimg.com/originals/1e/06/5c/1e065c8a96e87d1b56205abbba4ce574.jpg" width="100%" height="400px">
+	<div class="search-bar">
+	    <form>
+	        <div class="input-wrapper">
+	          <input type="text" class="form-control" placeholder="Search..." ng-model="query" style="display: inline-block;">
+	        </div>
+	        <button type="submit">Search</button>
+	    </form>
+	</div>
+
+	<div ng-repeat="restaurant in restaurants | filter:query" class="restaurant">
+	    <div class="rest-wrapper">
+	        <div class="image">
+	            <img src="{{restaurant.image}}" height="100" width="100">
+	        </div>
+	        <div class="rest-info">
+	        	<div class="rest-name">
+	            <a href="#!/restaurant/{{$index}}">{{restaurant.name}}</a>
+	            </div>
+	           
+	            <div class="rest-address">
+	                <strong> {{restaurant.address}} </strong>
+	            </div>
+	            <div class="rest-contact">
+	               <italic>phone:{{restaurant.phone}} </italic>
+	               <italic>reservation:{{restaurant.reservations}} </italic>
+	            </div>            
+	        </div>
+	    </div>
+	    <div class="rest-extra">
+	        <div class="type">
+	            <div><small>Cuisines:</small></div>
+	            <div><small>Cost for Two: </small></div>
+	            <div><small>Hours:</small></div>
+	        </div>
+	        <div class="value">
+	            <div>{{restaurant.cuisines}}</div>
+	            <!-- The | symbol denotes a filter  In Angular, there are a lot of filters that help us easily format our data -->
+	            <div>₹ {{ restaurant.cost | number }}</div>
+	            <div>{{restaurant.hours}}</div>            
+	        </div>
+	    </div>
+	    <div class="rating">
+	        <strong>{{restaurant.vote}}</strong>
+	    </div>
+    </div>
+
+</div>
